@@ -1,0 +1,70 @@
+sayan@sayan-G5-5590:~/catkin_ws$ catkin_make
+Base path: /home/sayan/catkin_ws
+Source space: /home/sayan/catkin_ws/src
+Build space: /home/sayan/catkin_ws/build
+Devel space: /home/sayan/catkin_ws/devel
+Install space: /home/sayan/catkin_ws/install
+####
+#### Running command: "make cmake_check_build_system" in "/home/sayan/catkin_ws/build"
+####
+-- Using CATKIN_DEVEL_PREFIX: /home/sayan/catkin_ws/devel
+-- Using CMAKE_PREFIX_PATH: /opt/ros/kinetic
+-- This workspace overlays: /opt/ros/kinetic
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using Debian Python package layout
+-- Using empy: /usr/bin/empy
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /home/sayan/catkin_ws/build/test_results
+-- Found gmock sources under '/usr/src/gmock': gmock will be built
+-- Found gtest sources under '/usr/src/gmock': gtests will be built
+-- Using Python nosetests: /usr/bin/nosetests-2.7
+-- catkin 0.7.18
+-- BUILD_SHARED_LIBS is on
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 1 packages in topological order:
+-- ~~  - beginner_tutorials
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'beginner_tutorials'
+-- ==> add_subdirectory(beginner_tutorials)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+CMake Warning at /home/sayan/catkin_ws/build/beginner_tutorials/cmake/beginner_tutorials-genmsg.cmake:3 (message):
+  Invoking generate_messages() without having added any message or service
+  file before.
+
+  You should either add add_message_files() and/or add_service_files() calls
+  or remove the invocation of generate_messages().
+Call Stack (most recent call first):
+  /opt/ros/kinetic/share/genmsg/cmake/genmsg-extras.cmake:307 (include)
+  beginner_tutorials/CMakeLists.txt:18 (generate_messages)
+
+
+-- beginner_tutorials: 0 messages, 0 services
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/sayan/catkin_ws/build
+####
+#### Running command: "make -j12 -l12" in "/home/sayan/catkin_ws/build"
+####
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_lisp
+[ 20%] Built target beginner_tutorials_generate_messages_nodejs
+[ 20%] Built target beginner_tutorials_generate_messages_eus
+[ 20%] Built target beginner_tutorials_generate_messages_py
+[ 20%] Built target beginner_tutorials_generate_messages_lisp
+[ 20%] Built target beginner_tutorials_generate_messages_cpp
+Scanning dependencies of target talker
+Scanning dependencies of target listener
+[ 20%] Built target beginner_tutorials_generate_messages
+[ 40%] Building CXX object beginner_tutorials/CMakeFiles/listener.dir/src/listener.cpp.o
+[ 60%] Building CXX object beginner_tutorials/CMakeFiles/talker.dir/src/talker.cpp.o
+[ 80%] Linking CXX executable /home/sayan/catkin_ws/devel/lib/beginner_tutorials/talker
+[100%] Linking CXX executable /home/sayan/catkin_ws/devel/lib/beginner_tutorials/listener
+[100%] Built target talker
+[100%] Built target listener
+sayan@sayan-G5-5590:~/catkin_ws$ 
+
