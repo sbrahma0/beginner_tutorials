@@ -9,9 +9,9 @@ This program is a basic introduction to a publisher and a subscriber in ROS. It 
 The process is followed as given on the ROS wiki: http://wiki.ros.org/ROS/Tutorials
 
 ## Dependencies
-This program works on a device running Ubuntu 16.04 and ROS Kinetic Kame.\
+This program works on a device running Ubuntu 16.04 and ROS Kinetic Kame.
 
-The project has following dependencies.\
+The project has following dependencies.
 
 1. ROS Kinetic
 2. catkin
@@ -46,17 +46,17 @@ catkin_make
 ```
 
 ## Publisher/subscriber working demo
-#####Open a new terminal and give the following commands
+Open a new terminal and give the following commands
 ```
 roscore
 ```
-#####Open a new terminal and give the following commands
+Open a new terminal and give the following commands
 ```
 cd ~/catkin_ws
 source ./devel/setup.bash
 rosrun beginner_tutorials talker
 ```
-#####Open a new terminal and give the following commands
+Open a new terminal and give the following commands
 ```
 cd ~/catkin_ws
 source ./devel/setup.bash
