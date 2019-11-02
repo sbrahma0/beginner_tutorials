@@ -11,14 +11,17 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation
 
 
 ## Declare ROS messages and services
-#add_message_files(DIRECTORY msg FILES Num.msg)
+add_message_files(FILES Num.msg)
 #add_service_files(DIRECTORY srv FILES AddTwoInts.srv)
 
 ## Generate added messages and services
 generate_messages(DEPENDENCIES std_msgs)
 
 ## Declare a catkin package
-catkin_package()
+catkin_package(
+  ...
+  CATKIN_DEPENDS message_runtime ...
+  ...)
 
 include_directories( include ${catkin_INCLUDE_DIRS})
 
