@@ -6,22 +6,19 @@ project(beginner_tutorials)
 add_compile_options(-std=c++11)
 
 ## Find catkin and any catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation genmsg)
+find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation)
 
 
 
 ## Declare ROS messages and services
 add_message_files(FILES Num.msg)
-#add_service_files(DIRECTORY srv FILES AddTwoInts.srv)
+add_service_files(FILES AddTwoInts.srv)
 
 ## Generate added messages and services
 generate_messages(DEPENDENCIES std_msgs)
 
 ## Declare a catkin package
-catkin_package(
-  ...
-  CATKIN_DEPENDS message_runtime ...
-  ...)
+catkin_package(CATKIN_DEPENDS message_runtime roscpp rospy std_msgs)
 
 include_directories( include ${catkin_INCLUDE_DIRS})
 
