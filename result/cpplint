@@ -3,3 +3,14 @@ Done processing ./beginner_tutorials/src/talker.cpp
 Done processing ./beginner_tutorials/src/listener.cpp
 sayan@sayan-G5-5590:~/catkin_ws/src$ 
 
+Some conflicts with google styling and ROS API so went the ROS API way.
+
+sayan@sayan-G5-5590:~/catkin_ws/src$ cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
+./beginner_tutorials/src/talker.cpp:43:  Static/global string variables are not permitted.  [runtime/string] [4]
+./beginner_tutorials/src/talker.cpp:52:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::change_string::Request &req  [runtime/references] [2]
+./beginner_tutorials/src/talker.cpp:53:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::change_string::Response &res  [runtime/references] [2]
+Done processing ./beginner_tutorials/src/talker.cpp
+Done processing ./beginner_tutorials/src/listener.cpp
+Total errors found: 3
+sayan@sayan-G5-5590:~/catkin_ws/src$ 
+
