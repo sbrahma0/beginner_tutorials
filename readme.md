@@ -21,6 +21,8 @@ To install ROS Kinetic Kame in Ubuntu 16.04, follow the steps in this [link](htt
 
 To install catkin, follow the installation steps in this [link](http://wiki.ros.org/catkin).
 
+**NOTE:- If there is a conflict due to ROS API and no workaround exists for google styling (cpplint) went with ROS API way
+
 ## Build Instructions
 
 To run this code in a catkin workspace:
@@ -62,3 +64,46 @@ cd ~/catkin_ws
 source ./devel/setup.bash
 rosrun beginner_tutorials listener
 ```
+
+## Launching the demo using Launch file
+#### Without changing the default frequency of the talker node
+Open a new terminal and give the following commands
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+roslaunch beginner_tutorials beginner_tutorial.launch 
+```
+#### Changing the default frequency of the talker node
+Open a new terminal and give the following commands (in the integer place if you enter 2 or less warning will be showed). This warning can also be seen in the rqt console as well as in the terminal.
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+roslaunch beginner_tutorials beginner_tutorial.launch frequency:=<integer>
+```
+## Checking the rqt console
+First launch the demo from either of the above mentioned methods, after that do the following:
+Open a new terminal and give the following commands
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun rqt_console rqt_console
+```
+Open a new terminal and give the following commands
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun rqt_logger_level rqt_logger_level
+```
+This opens the rqt console, now by selecting the logger level we can see the response of the nodes.
+
+## Calling the service
+If the service is not called the the default strings are passed but if we call this service the string passed by the talker node changes
+
+First launch the demo from either of the above mentioned methods, after that do the following:
+Open a new terminal and give the following commands
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosservice call /change_string <"any_string">
+```
+
