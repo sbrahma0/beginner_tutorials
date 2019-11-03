@@ -37,6 +37,10 @@
 // %EndTag(MSG_HEADER)%
 #include "beginner_tutorials/change_string.h"
 
+/**
+ * Initialize the base input string
+ */
+std::string strMsg = "Customizing string using srv ";
  /**
   * @brief      changeString
   *
@@ -45,9 +49,9 @@
   *
   * @return     boolean value after successful callback
   */
-bool changeString(const beginner_tutorials::change_string::Request &req,
-        const beginner_tutorials::change_string::Response &res) {
-    std::string strMsg = req.input;
+bool changeString(beginner_tutorials::change_string::Request &req,
+        beginner_tutorials::change_string::Response &res) {
+    strMsg = req.input;
     res.output = strMsg;             // modify the output string
     /* Info logger level message */
     ROS_INFO_STREAM("Modified the base output string message");
