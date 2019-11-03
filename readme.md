@@ -97,7 +97,7 @@ rosrun rqt_logger_level rqt_logger_level
 This opens the rqt console, now by selecting the logger level we can see the response of the nodes.
 
 ## Calling the service
-If the service is not called the the default string is passed, but if we call this service the string passed by the talker node can be changed
+If the service is not called then the default string is passed, but if we call this service the string passed by the talker node can be changed
 
 First launch the demo from either of the above mentioned methods, after that do the following:
 Open a new terminal and give the following commands
