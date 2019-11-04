@@ -39,8 +39,9 @@
 
 /**
  * Initialize the base input string
+ * extern” keyword is used to extend the visibility of variables/functions()
  */
-std::string strMsg = "Customizing string using srv ";
+extern std::string strMsg = "Customizing string using srv ";
  /**
   * @brief      changeString
   *
