@@ -106,4 +106,62 @@ cd ~/catkin_ws
 source ./devel/setup.bash
 rosservice call /change_string <"any_string">
 ```
+## To view the tf frames
+The tf broadcaster in the talker node will create a tf transform between the "world" frame and the "talk" frame. To inspec the frames please follow the following steps.
 
+Open a new terminal and give the following commands
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+roscore
+```
+Open a new terminal and give the following commands
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun beginner_tutorials talker
+```
+
+Open a new terminal and give the following commands
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun tf tf_echo /world /talk
+```
+After doing this, you will get a similar output
+```
+sayan@sayan-Aspire-V3-574G:~$ cd ~/catkin_ws
+sayan@sayan-Aspire-V3-574G:~/catkin_ws$ source ./devel/setup.bash
+sayan@sayan-Aspire-V3-574G:~/catkin_ws$ rosrun tf tf_echo /world /talk
+At time 1573064812.438
+- Translation: [5.000, 10.000, 15.000]
+- Rotation: in Quaternion [0.382, 0.596, -0.381, 0.595]
+            in RPY (radian) [3.140, 1.570, 2.000]
+            in RPY (degree) [179.909, 89.954, 114.592]
+At time 1573064813.139
+- Translation: [5.000, 10.000, 15.000]
+- Rotation: in Quaternion [0.382, 0.596, -0.381, 0.595]
+            in RPY (radian) [3.140, 1.570, 2.000]
+            in RPY (degree) [179.909, 89.954, 114.592]
+At time 1573064814.138
+- Translation: [5.000, 10.000, 15.000]
+- Rotation: in Quaternion [0.382, 0.596, -0.381, 0.595]
+            in RPY (radian) [3.140, 1.570, 2.000]
+            in RPY (degree) [179.909, 89.954, 114.592]
+```
+To visualize this in the graph format please open a new terminal and follow these commands
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun rqt_tf_tree rqt_tf_tree 
+```
+To generate the pdf usinf the view frame tool please open a new terminal and add these commands
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun tf view_frames
+```
+To see the generated pdf please enter the following command
+```
+evince frames.pdf
+```
