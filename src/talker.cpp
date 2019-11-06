@@ -27,6 +27,7 @@
  * @author: sayan Brahma
  * @brief ENPM808X ASSIHNMENT - Beginner_tutorials
  */
+#include <tf/transform_broadcaster.h>
 #include <sstream>
 // %Tag(FULLTEXT)%
 // %Tag(ROS_HEADER)%
@@ -36,6 +37,8 @@
 #include "std_msgs/String.h"
 // %EndTag(MSG_HEADER)%
 #include "beginner_tutorials/change_string.h"
+
+#define PI 3.14
 
 /**
  * Initialize the base input string
@@ -142,6 +145,11 @@ int main(int argc, char **argv) {
    */
 // %Tag(ROS_OK)%
   int count = 0;
+  
+  // Creating the TransformBroadcaster and Transform objects
+  tf::TransformBroadcaster br;
+  tf::Transform transform;
+
   while (ros::ok()) {
 // %EndTag(ROS_OK)%
     /**
@@ -173,6 +181,24 @@ int main(int argc, char **argv) {
      */
 // %Tag(PUBLISH)%
     chatter_pub.publish(msg);
+
+    /**
+     * Setting the origin for the Transform object. 
+     * This sets the translation vector of the transform
+     */
+    transform.setOrigin(tf::Vector3(5.0, 10.0, 15.0));
+    // Defining and Setting pitch, yaw and roll valueS for the Quaternion
+    tf::Quaternion q;
+    q.setRPY(PI, PI/2, 2);
+    transform.setRotation(q);
+
+    /**
+     * braoadcasting the transform with world and talk frames 
+     * as parent and child respectively using Transformbroadcaster
+     */
+    br.sendTransform(tf::StampedTransform(transform,
+    ros::Time::now(), "world", "talk"));
+
 // %EndTag(PUBLISH)%
 
 // %Tag(SPINONCE)%
