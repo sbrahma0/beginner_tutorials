@@ -165,3 +165,38 @@ To see the generated pdf please enter the following command
 ```
 evince frames.pdf
 ```
+## Run gtest/rostest
+There are 3 test cases writen for this behinner_tutorial- testServiceExistence, testServiceRun and testBroadcaster.
+To compile and run the test, open a new terminal and enter the following commands
+```
+cd ~/catkin_ws
+catkin_make run_tests_beginner_tutorials
+```
+After compilation please enter the following commands to launch thetest file
+```
+source devel/setup.bash
+rostest beginner_tutorials test_talker.launch
+```
+you must get a similar output as the following
+```
+sayan@sayan-Aspire-V3-574G:~/catkin_ws$ rostest beginner_tutorials test_talker.launch
+... logging to /home/sayan/.ros/log/rostest-sayan-Aspire-V3-574G-7934.log
+[ROSUNIT] Outputting test results to /home/sayan/.ros/test_results/beginner_tutorials/rostest-test_test_talker.xml
+[Testcase: testtest_talker] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[beginner_tutorials.rosunit-test_talker/testServiceExistence][passed]
+[beginner_tutorials.rosunit-test_talker/testServiceRun][passed]
+[beginner_tutorials.rosunit-test_talker/testBroadcaster][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 3
+ * ERRORS: 0
+ * FAILURES: 0
+
+rostest log file is in /home/sayan/.ros/log/rostest-sayan-Aspire-V3-574G-7934.log
+sayan@sayan-Aspire-V3-574G:~/catkin_ws$ 
+```
+
