@@ -107,7 +107,7 @@ source ./devel/setup.bash
 rosservice call /change_string <"any_string">
 ```
 ## To view the tf frames
-The tf broadcaster in the talker node will create a tf transform between the "world" frame and the "talk" frame. To inspec the frames please follow the following steps.
+The tf broadcaster in the talker node will create a tf transform between the "world" frame and the "talk" frame. The transformation is static in nature. To inspect the frames please follow the following steps.
 
 Open a new terminal and give the following commands
 ```
@@ -199,4 +199,35 @@ SUMMARY
 rostest log file is in /home/sayan/.ros/log/rostest-sayan-Aspire-V3-574G-7934.log
 sayan@sayan-Aspire-V3-574G:~/catkin_ws$ 
 ```
+## Recording the bag file by passing arguements in the launch file
+A ros bag file records all the topic and messages being published in the terminal. The below commands will record the bag file and save it in the result direcory as talker.bag. Use the following commands in different terminals.
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+roscore
+```
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+roslaunch beginner_tutorials beginner_tutorial.launch record:=enable
+```
+After elapsing approx 15 sec please press ctrl+c in the terminal where you have entered record enable command to stop the recording.
 
+## Verifying the bag file
+To get more information about the generated rosbag file, open the result directory in terminal and run the following command:
+```
+rosbag info talker.bag
+```
+
+## To replay the topic messages
+Make sure the roscore is still on. Execute the following commands in different terminals.
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun beginner_tutorials listener
+```
+Make sure you are in the result directory. Enter the following command.
+```
+rosbag play talker.bag
+```
+You will see that the messages in the talker-rosbag will be printed in the listener node.
