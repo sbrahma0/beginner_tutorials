@@ -145,7 +145,6 @@ int main(int argc, char **argv) {
    */
 // %Tag(ROS_OK)%
   int count = 0;
-  
   // Creating the TransformBroadcaster and Transform objects
   tf::TransformBroadcaster br;
   tf::Transform transform;
