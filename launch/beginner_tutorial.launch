@@ -5,6 +5,11 @@
     default="10" 
   />
 
+  <arg
+    name  ="record"
+    default = "disable"
+  />
+
   <node 
     pkg="beginner_tutorials" 
     name="talker" 
@@ -20,5 +25,12 @@
     output="screen"
     launch-prefix="gnome-terminal --command"
   />
+   <node
+    name = "rosbag"
+    pkg = "rosbag"
+    type = "record"
+    args = "--all --output-name=$(find beginner_tutorials)/result/talker.bag"
+    if = "$(eval record == 'enable')"
+   />
 
 </launch>
